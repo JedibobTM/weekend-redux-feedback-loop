@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
-import './HomePage.css';
+import './Feeling.css';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 export default function HomePage() {
@@ -9,18 +8,14 @@ export default function HomePage() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const feelings = useSelector(store => store.feelings);
-
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log("Testing handleSubmit");
         dispatch({
             type: 'ADD',
-            payload: {
-                feelingsRating
-            }
+            payload: feelingsRating
         })
-        history.push('./page-two');
+        history.push('./understanding');
     }
 
     return (
@@ -32,7 +27,8 @@ export default function HomePage() {
                 <input
                 value={feelingsRating}
                 type={'number'}
-                placeholder={'Rate 1-10'}
+                min={1}
+                max={10}
                 data-testid="input"
                 onChange={(event) => setFeelingsRating(event.target.value)}
                 />

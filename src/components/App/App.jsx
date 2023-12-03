@@ -1,11 +1,11 @@
 import React from 'react';
-import axios from 'axios';
 import { HashRouter as Router, Route } from 'react-router-dom/';
-import HomePage from '../HomePage/HomePage';
-import PageTwo from '../PageTwo/PageTwo';
-import PageThree from '../PageThree/PageThree'
-import PageFour from '../PageFour/PageFour';
-import PageFive from '../PageFive/PageFive';
+import Feeling from '../Feeling/Feeling';
+import PageTwo from '../Understanding/Understanding';
+import PageThree from '../Supporting/Supporting'
+import PageFour from '../Comments/Comments';
+import PageFive from '../Review/Review';
+import ThanksPage from '../ThanksPage/ThanksPage';
 import './App.css';
 
 function App() {
@@ -19,19 +19,22 @@ function App() {
 
       <Router>
         <Route exact path="/">
-          <HomePage />
+          <Feeling />
         </Route>
-        <Route path="/page-two">
+        <Route path="/understanding">
           <PageTwo />
         </Route>
-        <Route path="/page-three">
+        <Route path="/supporting">
           <PageThree />
         </Route>
-        <Route path="/page-four">
+        <Route path="/comments">
           <PageFour />
         </Route>
-        <Route path="/page-five">
+        <Route path="/review">
           <PageFive />
+        </Route>
+        <Route path="/thanks-page">
+          <ThanksPage />
         </Route>
       </Router>
     </div>
